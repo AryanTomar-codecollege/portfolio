@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aryan Tomar - Computer Science Student, Frontend Developer Intern, and Software Developer. Portfolio showcasing projects, skills, and experience.">
+  <title>Aryan Tomar | Frontend / Software Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Animated background particles -->
+<canvas id="bg-canvas"></canvas>
+<div class="page">
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a class="nav-logo" href="#" aria-label="Aryan Tomar - Home">
+      <svg class="logo-monogram" viewBox="0 0 48 48" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--accent)"/>
+            <stop offset="100%" stop-color="var(--accent-2)"/>
+          </linearGradient>
+        </defs>
+        <path d="M4 10 Q24 7 44 10" stroke="url(#logo-grad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <line x1="24" y1="10" x2="24" y2="42" stroke="url(#logo-grad)" stroke-width="3" stroke-linecap="round"/>
+        <line x1="24" y1="10" x2="10" y2="42" stroke="url(#logo-grad)" stroke-width="3" stroke-linecap="round"/>
+        <line x1="24" y1="10" x2="38" y2="42" stroke="url(#logo-grad)" stroke-width="3" stroke-linecap="round"/>
+        <line x1="14" y1="32" x2="34" y2="32" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+      </svg>
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Profile</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+      <span class="theme-icon">Sun</span>
+    </button>
+    <a href="#contact" class="nav-cta">Contact</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav" id="mobile-nav">
+  <svg class="mobile-nav-logo" viewBox="0 0 48 48" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 10 Q24 7 44 10" stroke="url(#logo-grad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <line x1="24" y1="10" x2="24" y2="42" stroke="url(#logo-grad)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="24" y1="10" x2="10" y2="42" stroke="url(#logo-grad)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="24" y1="10" x2="38" y2="42" stroke="url(#logo-grad)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="14" y1="32" x2="34" y2="32" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  </svg>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#experience">Profile</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ============ HERO SECTION ============ -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Open to internships and developer opportunities</div>
+      <h1 class="hero-name"><span class="accent">Aryan Tomar</span></h1>
+      <p class="hero-role"><strong>Computer Science Student</strong> &middot; Frontend Developer Intern &middot; Software Developer Intern</p>
+      <div class="hero-typing">
+        <span id="typing-text"></span><span class="cursor"></span>
+      </div>
+      <p class="hero-desc">
+        I am a B.Tech Computer Science Engineering (AI/ML) student focused on building practical web applications with clean structure,
+        strong problem solving, and product-oriented thinking. My current strengths are Python, Flask, MySQL, HTML, CSS, DSA, and OOP,
+        while I am actively growing into JavaScript and frontend development roles.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">&darr; View Projects</a>
+        <a href="#contact" class="btn-secondary">&rarr; Contact Me</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="card-label">Quick Snapshot</div>
+      <div class="snapshot">
+        <div class="snap-item"><div class="snap-value">2024-2028</div><div class="snap-label">B.Tech CSE (AI/ML)</div></div>
+        <div class="snap-item"><div class="snap-value" data-count="88">0%</div><div class="snap-label">Class 10</div></div>
+        <div class="snap-item"><div class="snap-value" data-count="79.2">0%</div><div class="snap-label">Semester 2</div></div>
+        <div class="snap-item"><div class="snap-value" data-count="79.7">0%</div><div class="snap-label">Semester 1</div></div>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">Python</span>
+        <span class="hero-tag">Flask</span>
+        <span class="hero-tag">MySQL</span>
+        <span class="hero-tag">HTML</span>
+        <span class="hero-tag">CSS</span>
+        <span class="hero-tag">Java</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ ABOUT SECTION ============ -->
+<section class="section" id="about">
+  <div class="section-header reveal">
+    <div class="section-label"><span class="section-label-line"></span>01 &mdash; About</div>
+    <h2 class="section-title">A student developer building with <span class="grad">clarity and purpose</span></h2>
+    <p class="section-sub">
+      My focus is to build practical software, strengthen core CS fundamentals, and become industry-ready for frontend and software development internships.
+    </p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-body reveal">
+      <p>
+        I am currently pursuing <strong>B.Tech in Computer Science Engineering (AI/ML)</strong> at <strong>Dronacharya College of Engineering</strong> from 2024 to 2028.
+        I enjoy working on projects that combine logic, usability, and real-world application.
+      </p>
+      <div class="quote">"I like building products that solve real problems and improve with every iteration."</div>
+      <p>
+        My current technical foundation includes <strong>C, Python, Java, HTML, CSS, Flask, MySQL, GitHub, VS Code, Data Structures &amp; Algorithms, OOP, and REST APIs</strong>.
+        I am also learning <strong>JavaScript</strong> to move deeper into frontend development.
+      </p>
+      <p>
+        I bring a problem-solving mindset, product-oriented thinking, and a strong desire to learn through building. I am looking for opportunities where I can apply these strengths in real development teams.
+      </p>
+    </div>
+
+    <div class="panel reveal">
+      <div class="panel-title">Education &amp; Skills</div>
+      <div class="edu-list">
+        <div class="edu-item"><span>B.Tech CSE (AI/ML) &middot; Dronacharya College of Engineering</span><span>2024-2028</span></div>
+        <div class="edu-item"><span>Semester 1: 79.7% &middot; Semester 2: 79.2%</span><span>Current</span></div>
+        <div class="edu-item"><span>Class 10: 88% &middot; Class 12: 73.2%</span><span>Academics</span></div>
+      </div>
+      <div class="skill-list">
+        <div class="skill-item"><span>C, Python, Java</span><span>Languages</span></div>
+        <div class="skill-item"><span>HTML, CSS, JavaScript (Learning)</span><span>Frontend</span></div>
+        <div class="skill-item"><span>Flask</span><span>Backend</span></div>
+        <div class="skill-item"><span>MySQL</span><span>Database</span></div>
+        <div class="skill-item"><span>GitHub, VS Code</span><span>Tools</span></div>
+        <div class="skill-item"><span>DSA, OOP, REST APIs</span><span>Core CS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ PROJECTS SECTION ============ -->
+<section class="section" id="projects">
+  <div class="section-header reveal">
+    <div class="section-label"><span class="section-label-line"></span>02 &mdash; Projects</div>
+    <h2 class="section-title">Projects that show <span class="grad">practical problem solving</span></h2>
+    <p class="section-sub">
+      These projects highlight backend logic, database design, structured development, and my ability to build useful products from concept to implementation.
+    </p>
+  </div>
+
+  <div class="project-grid reveal-stagger">
+    <!-- Project 1 -->
+    <div class="project-card" data-tilt>
+      <div class="project-num">01</div>
+      <div class="project-title">Smart Quiz System</div>
+      <div class="project-sub">Adaptive Learning Platform</div>
+      <ul class="project-points">
+        <li>Engineered an adaptive difficulty engine that adjusts question complexity based on real-time user performance, improving learning retention.</li>
+        <li>Implemented a time-bound quiz module with countdown timers, session tracking, and instant score feedback to simulate exam conditions.</li>
+        <li>Built end-to-end user authentication including registration, login, session management, and a dashboard for tracking score history and performance trends.</li>
+        <li>Designed a normalized MySQL schema with 5+ relational tables and integrated Flask routing for a clean MVC-style separation of concerns.</li>
+      </ul>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Flask</span>
+        <span class="tech-tag">MySQL</span>
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+      </div>
+      <div class="project-actions">
+        <a href="https://github.com/AryanTomar-codecollege" class="project-btn primary" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" class="project-btn secondary">Live Demo</a>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card" data-tilt>
+      <div class="project-num">02</div>
+      <div class="project-title">Local Food Vendor Discovery Platform</div>
+      <div class="project-sub">Geo-Location Web App</div>
+      <ul class="project-points">
+        <li>Developed a full-stack web application enabling users to discover nearby street food vendors with live location data via Google Maps API integration.</li>
+        <li>Architected a vendor registration system allowing vendors to list menus, operating hours, and location pins, reducing discovery friction for 50+ potential vendor types.</li>
+        <li>Designed a social food-preference matching feature concept that recommends vendors based on user taste profiles, improving search relevance.</li>
+        <li>Built responsive UI with HTML and CSS and structured the MySQL backend to support scalable vendor and user data storage.</li>
+      </ul>
+      <div class="tech-tags">
+        <span class="tech-tag">Flask</span>
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">MySQL</span>
+        <span class="tech-tag">Google Maps API</span>
+      </div>
+      <div class="project-actions">
+        <a href="https://github.com/AryanTomar-codecollege" class="project-btn primary" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" class="project-btn secondary">Live Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ PROFILE / EXPERIENCE SECTION ============ -->
+<section class="section" id="experience">
+  <div class="section-header reveal">
+    <div class="section-label"><span class="section-label-line"></span>03 &mdash; Profile</div>
+    <h2 class="section-title">My current <span class="grad">academic and technical profile</span></h2>
+  </div>
+
+  <div class="experience-grid">
+    <nav class="experience-nav">
+      <a class="experience-nav-item active" href="javascript:void(0)" data-exp-index="0"><span class="experience-nav-dot"></span>Education</a>
+      <a class="experience-nav-item" href="javascript:void(0)" data-exp-index="1"><span class="experience-nav-dot"></span>Strengths</a>
+      <a class="experience-nav-item" href="javascript:void(0)" data-exp-index="2"><span class="experience-nav-dot"></span>Certifications</a>
+      <a class="experience-nav-item" href="javascript:void(0)" data-exp-index="3"><span class="experience-nav-dot"></span>Languages</a>
+    </nav>
+
+    <div class="experience-items">
+      <div class="experience-item" id="exp-0">
+        <div class="experience-date">2024 &mdash; 2028</div>
+        <div class="experience-role">B.Tech in Computer Science Engineering (AI/ML)</div>
+        <div class="experience-company">Dronacharya College of Engineering</div>
+        <div class="experience-desc">Currently pursuing my undergraduate degree with a focus on computer science fundamentals, software development, and applied problem solving.</div>
+        <ul class="experience-points">
+          <li>Semester 1 Score: 79.7%</li>
+          <li>Semester 2 Score: 79.2%</li>
+          <li>Built a strong base for software development through academics and practical projects</li>
+        </ul>
+      </div>
+
+      <div class="experience-item" id="exp-1">
+        <div class="experience-date">Core Strengths</div>
+        <div class="experience-role">Problem Solving and Product Thinking</div>
+        <div class="experience-company">Technical profile focus</div>
+        <div class="experience-desc">I am building toward internship-ready frontend and software development roles with a strong focus on logic, structured thinking, and real-world usability.</div>
+        <ul class="experience-points">
+          <li>Strong DSA foundation at an intermediate level</li>
+          <li>Comfortable with OOP concepts and backend-driven project structure</li>
+          <li>Product-oriented mindset focused on building useful solutions</li>
+        </ul>
+      </div>
+
+      <div class="experience-item" id="exp-2">
+        <div class="experience-date">2025 &mdash; 2026</div>
+        <div class="experience-role">Certifications</div>
+        <div class="experience-company">Professional learning and upskilling</div>
+        <div class="experience-desc">I have continued building my technical exposure through structured certifications and workshops.</div>
+        <ul class="experience-points">
+          <li>DSA Mastery with Java &mdash; ExcelR (2025)</li>
+          <li>AI &amp; ML Engineer Certification &mdash; Reliance Foundation (2026)</li>
+          <li>AI Tools Workshop &mdash; be10x (2026)</li>
+        </ul>
+      </div>
+
+      <div class="experience-item" id="exp-3">
+        <div class="experience-date">Communication</div>
+        <div class="experience-role">Languages and Collaboration</div>
+        <div class="experience-company">English &middot; Hindi</div>
+        <div class="experience-desc">Comfortable communicating in both English and Hindi and working in learning-oriented, collaborative environments.</div>
+        <ul class="experience-points">
+          <li>Self-driven learner with strong consistency</li>
+          <li>Ready for internship and team-based development experience</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============ CONTACT SECTION ============ -->
+<section class="section" id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="section-label"><span class="section-label-line"></span>04 &mdash; Contact</div>
+      <div class="contact-intro">Let's connect for <span class="grad">internships and opportunities</span></div>
+      <div class="contact-copy">
+        I am currently seeking Frontend Developer Intern and Software Developer Intern opportunities where I can apply my technical foundation, keep learning fast, and contribute to real projects.
+      </div>
+      <div class="contact-list">
+        <a class="contact-item" href="tel:+919971513937"><span class="contact-icon">Tel</span>+91 9971513937</a>
+        <a class="contact-item" href="mailto:tomararyan361@gmail.com"><span class="contact-icon">Mail</span>tomararyan361@gmail.com</a>
+        <a class="contact-item" href="https://www.linkedin.com/in/aryan-tomar-95149b387" target="_blank" rel="noopener"><span class="contact-icon">in</span>linkedin.com/in/aryan-tomar-95149b387</a>
+        <a class="contact-item" href="https://github.com/AryanTomar-codecollege" target="_blank" rel="noopener"><span class="contact-icon">{ }</span>github.com/AryanTomar-codecollege</a>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <div class="form-title">Send a message</div>
+      <div class="form-row">
+        <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname" placeholder="Aryan"></div>
+        <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname" placeholder="Tomar"></div>
+      </div>
+      <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="yourname@company.com"></div>
+      <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" placeholder="Internship, project, or collaboration"></div>
+      <div class="form-group"><label for="message">Message</label><textarea id="message" rows="5" placeholder="Tell me about the opportunity or how I can contribute."></textarea></div>
+      <button class="submit-btn" type="button">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-left">
+    <svg class="footer-monogram" viewBox="0 0 48 48" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--accent)"/>
+          <stop offset="100%" stop-color="var(--accent-2)"/>
+        </linearGradient>
+      </defs>
+      <path d="M4 10 Q24 7 44 10" stroke="url(#footer-logo-grad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <line x1="24" y1="10" x2="24" y2="42" stroke="url(#footer-logo-grad)" stroke-width="3" stroke-linecap="round"/>
+      <line x1="24" y1="10" x2="10" y2="42" stroke="url(#footer-logo-grad)" stroke-width="3" stroke-linecap="round"/>
+      <line x1="24" y1="10" x2="38" y2="42" stroke="url(#footer-logo-grad)" stroke-width="3" stroke-linecap="round"/>
+      <line x1="14" y1="32" x2="34" y2="32" stroke="url(#footer-logo-grad)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    </svg>
+    <span>Aryan Tomar</span>
+  </div>
+  <div class="footer-right">&copy; 2026 &middot; Built with &hearts; using modern web tech &middot; <a href="#">Back to top &uarr;</a></div>
+</footer>
+
+</div><!-- /.page -->
+
+<!-- Scroll-to-top button -->
+<button class="scroll-top" id="scroll-top" aria-label="Scroll to top">&uarr;</button>
+
+<script src="script.js"></script>
+</body>
+</html>

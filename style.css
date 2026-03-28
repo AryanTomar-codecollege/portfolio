@@ -972,6 +972,27 @@ body::before{
   border-color:var(--accent);
   box-shadow:0 0 0 3px var(--accent-soft);
 }
+.form-status{
+  min-height:1.4rem;
+  margin:.2rem 0 1rem;
+  color:var(--muted);
+  font-size:.88rem;
+  line-height:1.5;
+}
+.form-status.error{
+  color:#ff8a8a;
+}
+.form-status.success{
+  color:var(--accent);
+}
+.form-honeypot{
+  position:absolute;
+  left:-9999px;
+  width:1px;
+  height:1px;
+  opacity:0;
+  pointer-events:none;
+}
 .submit-btn{
   width:100%;
   border:none;

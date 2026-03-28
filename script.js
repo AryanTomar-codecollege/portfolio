@@ -332,6 +332,77 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  // ---- Contact Form Submission ----
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  contactForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const firstNameInput = document.getElementById('fname');
+    const lastNameInput = document.getElementById('lname');
+    const emailInput = document.getElementById('email');
+    const subjectInput = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+
+    const firstName = firstNameInput?.value.trim() || '';
+    const lastName = lastNameInput?.value.trim() || '';
+    const email = emailInput?.value.trim() || '';
+    const subject = subjectInput?.value.trim() || '';
+    const message = messageInput?.value.trim() || '';
+
+    if (!firstName || !email || !subject || !message) {
+      if (formStatus) {
+        formStatus.textContent = 'Please fill in your name, email, subject, and message before sending.';
+        formStatus.className = 'form-status error';
+      }
+      return;
+    }
+
+    if (formStatus) {
+      formStatus.textContent = 'Sending your message...';
+      formStatus.className = 'form-status';
+    }
+
+    const submitButton = contactForm.querySelector('.submit-btn');
+    if (submitButton) submitButton.disabled = true;
+
+    const formData = new FormData(contactForm);
+    formData.set('first_name', firstName);
+    formData.set('last_name', lastName);
+    formData.set('email', email);
+    formData.set('subject', subject);
+    formData.set('message', message);
+    formData.set('name', [firstName, lastName].filter(Boolean).join(' '));
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      if (formStatus) {
+        formStatus.textContent = 'Message sent successfully. I will get it on my email.';
+        formStatus.className = 'form-status success';
+      }
+      contactForm.reset();
+    } catch (error) {
+      if (formStatus) {
+        formStatus.textContent = 'Message could not be sent right now. Please use the email link below instead.';
+        formStatus.className = 'form-status error';
+      }
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+    }
+  });
+
   // ---- Animated Background Particles ----
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {

@@ -335,73 +335,65 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Contact Form Submission ----
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
+  const formNext = document.getElementById('form-next');
+  const formReplyTo = document.getElementById('form-replyto');
+  const formUrl = document.getElementById('form-url');
 
-  contactForm?.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  if (contactForm) {
+    const currentUrl = `${window.location.origin}${window.location.pathname}`;
+    if (formNext) formNext.value = `${currentUrl}?form=success#contact`;
+    if (formUrl) formUrl.value = currentUrl;
 
-    const firstNameInput = document.getElementById('fname');
-    const lastNameInput = document.getElementById('lname');
-    const emailInput = document.getElementById('email');
-    const subjectInput = document.getElementById('subject');
-    const messageInput = document.getElementById('message');
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('form') === 'success' && formStatus) {
+      formStatus.textContent = 'Message sent successfully. I will get it on my email.';
+      formStatus.className = 'form-status success';
 
-    const firstName = firstNameInput?.value.trim() || '';
-    const lastName = lastNameInput?.value.trim() || '';
-    const email = emailInput?.value.trim() || '';
-    const subject = subjectInput?.value.trim() || '';
-    const message = messageInput?.value.trim() || '';
-
-    if (!firstName || !email || !subject || !message) {
-      if (formStatus) {
-        formStatus.textContent = 'Please fill in your name, email, subject, and message before sending.';
-        formStatus.className = 'form-status error';
-      }
-      return;
+      // Clean the success query from the address bar after showing feedback.
+      const cleanUrl = `${window.location.pathname}${window.location.hash || '#contact'}`;
+      window.history.replaceState({}, '', cleanUrl);
     }
 
-    if (formStatus) {
-      formStatus.textContent = 'Sending your message...';
-      formStatus.className = 'form-status';
-    }
+    contactForm.addEventListener('submit', (e) => {
+      const firstNameInput = document.getElementById('fname');
+      const lastNameInput = document.getElementById('lname');
+      const emailInput = document.getElementById('email');
+      const subjectInput = document.getElementById('subject');
+      const messageInput = document.getElementById('message');
+      const submitButton = contactForm.querySelector('.submit-btn');
 
-    const submitButton = contactForm.querySelector('.submit-btn');
-    if (submitButton) submitButton.disabled = true;
+      const firstName = firstNameInput?.value.trim() || '';
+      const lastName = lastNameInput?.value.trim() || '';
+      const email = emailInput?.value.trim() || '';
+      const subject = subjectInput?.value.trim() || '';
+      const message = messageInput?.value.trim() || '';
 
-    const formData = new FormData(contactForm);
-    formData.set('first_name', firstName);
-    formData.set('last_name', lastName);
-    formData.set('email', email);
-    formData.set('subject', subject);
-    formData.set('message', message);
-    formData.set('name', [firstName, lastName].filter(Boolean).join(' '));
-
-    try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Accept: 'application/json',
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Submission failed');
+      if (!firstName || !email || !subject || !message) {
+        e.preventDefault();
+        if (formStatus) {
+          formStatus.textContent = 'Please fill in your name, email, subject, and message before sending.';
+          formStatus.className = 'form-status error';
+        }
+        return;
       }
+
+      if (formReplyTo) formReplyTo.value = email;
+      contactForm.querySelector('input[name="name"][data-generated-name]')?.remove();
+
+      const nameField = document.createElement('input');
+      nameField.type = 'hidden';
+      nameField.name = 'name';
+      nameField.dataset.generatedName = 'true';
+      nameField.value = [firstName, lastName].filter(Boolean).join(' ');
+      contactForm.appendChild(nameField);
 
       if (formStatus) {
-        formStatus.textContent = 'Message sent successfully. I will get it on my email.';
-        formStatus.className = 'form-status success';
+        formStatus.textContent = 'Sending your message...';
+        formStatus.className = 'form-status';
       }
-      contactForm.reset();
-    } catch (error) {
-      if (formStatus) {
-        formStatus.textContent = 'Message could not be sent right now. Please use the email link below instead.';
-        formStatus.className = 'form-status error';
-      }
-    } finally {
-      if (submitButton) submitButton.disabled = false;
-    }
-  });
+      if (submitButton) submitButton.disabled = true;
+    });
+  }
 
   // ---- Animated Background Particles ----
   const canvas = document.getElementById('bg-canvas');
